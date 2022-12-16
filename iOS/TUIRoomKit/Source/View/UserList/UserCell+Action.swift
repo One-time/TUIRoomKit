@@ -8,7 +8,6 @@
 
 import Foundation
 import ImSDK_Plus
-import Kingfisher
 import UIKit
 
 extension UserCell {

@@ -6,7 +6,6 @@
 //  Copyright © 2021 Tencent. All rights reserved.
 //
 
-import Kingfisher
 import SnapKit
 import TUIRoomEngine
 import UIKit
@@ -369,11 +368,7 @@ class TUIRoomAttendeeRenderView: UIView, UIGestureRecognizerDelegate {
 
         avatarImageView.layer.cornerRadius = ((styleType == .big) ? 100 : 60) / 2
         let placeholder = UIImage(named: "tuiroom_default_user", in: tuiVideoSeatBundle(), compatibleWith: nil)
-        if let url = URL(string: attendeeModel.userInfo.avatarUrl) {
-            avatarImageView.kf.setImage(with: .network(url), placeholder: placeholder)
-        } else {
-            avatarImageView.image = placeholder
-        }
+        avatarImageView.sd_setImage(with: URL(string: attendeeModel.userInfo.avatarUrl), placeholderImage: placeholder)
         userLabel.text = attendeeModel.userInfo.userName
 
         var rightDiff: CGFloat = 0.0
@@ -555,12 +550,7 @@ class TUIRoomAttendeeRenderView: UIView, UIGestureRecognizerDelegate {
                                    cornerRadii: CGSize(width: 6, height: 6))
             }
             let placeholder = UIImage(named: "tuiroom_default_user", in: tuiVideoSeatBundle(), compatibleWith: nil)
-            if let url = URL(string: attendeeModel.userInfo.avatarUrl) {
-                avatarImageView.kf.setImage(with: .network(url),
-                                            placeholder: placeholder)
-            } else {
-                avatarImageView.image = placeholder
-            }
+            avatarImageView.sd_setImage(with: URL(string: attendeeModel.userInfo.avatarUrl), placeholderImage: placeholder)
         }
     }
 

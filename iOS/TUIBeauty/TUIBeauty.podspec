@@ -7,16 +7,19 @@ Pod::Spec.new do |spec|
   spec.homepage     = 'https://cloud.tencent.com/document/product/269/3794'
   spec.documentation_url = 'https://cloud.tencent.com/document/product/269/9147'
   spec.authors      = 'tencent video cloud'
-  spec.summary      = 'TUIBeauty'
+  spec.summary      = '针对企业会议、在线课堂、网络沙龙等多人音视频场景的美颜挂件.'
   spec.xcconfig     = { 'VALID_ARCHS' => 'armv7 arm64 x86_64' }
-
+  
   spec.dependency 'Masonry'
   spec.dependency 'SSZipArchive'
   spec.dependency 'TUICore/ImSDK_Scenario'
   
   spec.requires_arc = true
   spec.static_framework = true
-  spec.source = { :git => '', :tag => "#{spec.version}" }
+  
+  spec.source = { :git => 'https://github.com/tencentyun/TUIRoomKit/tree/main/iOS/TUIBeauty',
+    :tag => "v#{spec.version}" }
+  
   spec.pod_target_xcconfig = {
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
   }
@@ -28,9 +31,9 @@ Pod::Spec.new do |spec|
   spec.resource_bundles = {
     'TUIBeautyKitBundle' => ['Resources/Localized/**/*.strings', 'Resources/*.xcassets', 'Resources/*.bundle', 'Resources/*.mp4', 'Resources/*.json', 'Resources/BeautyResource/*', 'Resources/Xmagic/BeautyRes/*', 'Resources/Xmagic/*.json', 'Resources/Xmagic/*.bundle']
   }
-
+  
   spec.default_subspec = 'Default'
-
+  
   spec.subspec 'Default' do |default|
     default.dependency 'XMagic', '2.5.0.250'
   end
@@ -40,4 +43,3 @@ Pod::Spec.new do |spec|
   end
   
 end
-

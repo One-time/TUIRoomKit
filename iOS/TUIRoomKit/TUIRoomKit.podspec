@@ -8,16 +8,16 @@ Pod::Spec.new do |spec|
   spec.homepage              = 'https://cloud.tencent.com/document/product/269/3794'
   spec.documentation_url     = 'https://cloud.tencent.com/document/product/269/9147'
   spec.authors               = 'tencent video cloud'
-  spec.summary               = 'A short description of TUIRoomKit.'
+  spec.summary               = '针对企业会议、在线课堂、网络沙龙等多人音视频场景的业务組件.'
   
   spec.static_framework = true
   spec.xcconfig      = { 'VALID_ARCHS' => 'armv7 arm64 x86_64' }
   spec.swift_version = '5.0'
-
-  spec.source                = { :path => './' }
+  
+  spec.source = { :git => 'https://github.com/tencentyun/TUIRoomKit/tree/main/iOS/TUIRoomKit',
+    :tag => "v#{spec.version}"}
   
   spec.dependency 'SnapKit'
-  spec.dependency 'Kingfisher'
   spec.dependency 'Toast-Swift'
   spec.dependency 'TXAppBasic'
   spec.dependency 'TUICore/ImSDK_Scenario'

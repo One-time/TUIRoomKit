@@ -8,7 +8,6 @@
 
 import Foundation
 import ImSDK_Plus
-import Kingfisher
 import TUIRoomEngine
 import UIKit
 
@@ -96,11 +95,7 @@ class UserCell: UICollectionViewCell {
 
     func updateView(_ model: TUIUserInfo) {
         let placeholder = UIImage(named: "tuiroom_default_user", in: tuiRoomKitBundle(), compatibleWith: nil)
-        if let url = URL(string: model.avatarUrl) {
-            avatarImageView.kf.setImage(with: .network(url), placeholder: placeholder)
-        } else {
-            avatarImageView.image = placeholder
-        }
+        avatarImageView.sd_setImage(with: URL(string: model.avatarUrl), placeholderImage: placeholder)
         userLabel.text = model.userName
 
         if roomEngineInfo?.owner == currentUserInfo?.userId {
